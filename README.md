@@ -14,4 +14,9 @@
 
 - Run `npm run build`.
 - Run `npm start`.
+
 # Player
+
+## 23.04.14
+
+- Define model 'Song' (with schema)

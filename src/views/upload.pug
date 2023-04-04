@@ -1,0 +1,12 @@
+extends base
+
+block content
+    if errorMessage 
+        span=errorMessage
+    form(method="POST", action="/songs/upload")
+        input(placeholder="Title", required, type="text", name="title")
+        input(placeholder="Genre (separated by comma.)", required, type="text", name="genre")
+        input(placeholder="Artist (separated by comma.)", required, type="text", name="artist")
+        input(placeholder="Album", required, type="text", name="album")
+        input(placeholder="path", required, type="text", name="path")
+        input(type="submit", value="Upload Song")

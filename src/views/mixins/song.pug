@@ -1,0 +1,12 @@
+mixin song(song)
+    div
+        h4
+            a(href=`/songs/${song.id}`)=song.title
+        br
+        ul
+            li #{song.artist}
+            li #{song.album}
+            li (#{song.genre})
+            li #{song.meta.plays} Plays
+            li #{song.meta.likes} Likes
+        hr
