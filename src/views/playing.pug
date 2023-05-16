@@ -1,11 +1,31 @@
 extends base.pug
 
 block content
-    h3=song.title
-    div
-        div
-            span=song.artist 
-        div
-            span=song.genre
+    div#player-container
+        div#player(data-song-id=song.path)
+        div#playerControls.playerControls
+            div.playerControls__time
+                input(type="range", value=0, min="0", max="100")#timeline
+                span#currentTime 00:00 
+                span / 
+                span#totalTime 00:00
+
+            button#loop.playerControls__loop Loop
+            button#play.playerControls__play Play
+            button#pause.playerControls__pause Pause
+            button#stop.playerControls__stop Stop
+            button#suffle.playerControls__suffle Suffle
+
+            div.playerControls__volume
+                label(for="volume") Volume
+                input(type="range", value=50, min="0", max="100")#volume
+                span#mute Mute
+    div.song__data
+        h3.song-title=song.title 
+        span.song-title=song.artist 
+        span.song-title=song.genre
     hr
     a(href='/') Home &rarr;
+
+block scripts 
+    script(src="/static/js/player.js") 

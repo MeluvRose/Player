@@ -1,4 +1,3 @@
-import { async } from "regenerator-runtime";
 import Song from "../models/Song";
 import User from "../models/User";
 
@@ -55,7 +54,6 @@ export const playing = async (req, res) => {
   const song = await Song.findById(id);
 
   if (!song) return res.render("404", { pageTitle: "Song not Found" });
-
   song.meta.plays = song.meta.plays + 1;
   await song.save();
   return res.render("playing", { pageTitle: `▶️ ${song.title}`, song });
